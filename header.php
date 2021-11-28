@@ -28,33 +28,42 @@
 			href="#primary"><?php esc_html_e( 'Skip to content', 'photoheaven' ); ?></a>
 
 		<header id="masthead" class="site-header">
-			<div class="site-branding">
-				<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"
-						rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"
-						rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$photoheaven_description = get_bloginfo( 'description', 'display' );
-			if ( $photoheaven_description || is_customize_preview() ) :
-				?>
-				<p class="site-description">
-					<?php echo $photoheaven_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-				</p>
-				<?php endif; ?>
-			</div><!-- .site-branding -->
+			<img src="<?php esc_url(header_image()) ; ?>" alt="" class="hero-img">
 
-			<nav id="site-navigation" class="main-navigation">
-				<button class="menu-toggle" aria-controls="primary-menu"
-					aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'photoheaven' ); ?></button>
-				<?php
+			<div class="site-branding">
+				<div class="main-nav">
+					<div class="site-logo">
+						<?php the_custom_logo();?>
+					</div>
+					<?php
+						if ( is_front_page() && is_home() ) :
+							?>
+					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"
+							rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<?php
+						else :
+							?>
+					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"
+							rel="home"><?php bloginfo( 'name' ); ?></a></p>
+					<?php
+						endif;
+						$photoheaven_description = get_bloginfo( 'description', 'display' );
+						if ( $photoheaven_description || is_customize_preview() ) :
+							?>
+					<p class="site-description">
+						<?php echo $photoheaven_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					</p>
+					<?php endif; ?>
+
+					<nav id="site-navigation" class="main-navigation">
+						<input type="checkbox" id="nav-checkbox" aria-controls="primary-menu" role="menu toggle" />
+						<label for="nav-checkbox" class="nav-toggle">
+							<span class="nav-icon"></span>
+							<span class="nav-icon"></span>
+							<span class="nav-icon"></span>
+						</label>
+						<div class="nav-menu">
+							<?php
 			wp_nav_menu(
 				array(
 					'theme_location' => 'menu-1',
@@ -62,5 +71,12 @@
 				)
 			);
 			?>
-			</nav><!-- #site-navigation -->
+						</div>
+						<!--nav-menu-->
+					</nav><!-- #site-navigation -->
+				
+				<!--main-nav-->
+					</div><!-- .site-branding -->
+
+
 		</header><!-- #masthead -->

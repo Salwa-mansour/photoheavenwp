@@ -10,6 +10,14 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<?php //photoheaven_post_thumbnail(); ?>
+				<?php if(get_post_format() == 'gallery' ):  ?>
+					
+		
+				<?php photoheaven_flexslider( 'post-image' ); ?>
+			
+		<?php	endif; ?>
+
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
@@ -17,23 +25,17 @@
 		else :
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
+		?>
+	
+	</header>
 
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				photoheaven_posted_on();
-				photoheaven_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-	<?php photoheaven_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php
-		the_content(
+		 if(get_post_format() == 'gallery' ): 
+				echo preg_replace('/<img[^>]+./','',get_the_content());
+		 else://(get_post_format() == 'gallery' ): 
+			the_content(
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
@@ -47,7 +49,10 @@
 				wp_kses_post( get_the_title() )
 			)
 		);
-
+		 endif;//(get_post_format() == 'gallery' ): 
+	
+	
+	
 		wp_link_pages(
 			array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'photoheaven' ),

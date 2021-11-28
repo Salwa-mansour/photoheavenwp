@@ -6,11 +6,11 @@
  *
  * @package photoheaven
  */
-
+// echo('single');
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main post-container">
 
 		<?php
 		while ( have_posts() ) :
@@ -20,8 +20,8 @@ get_header();
 
 			the_post_navigation(
 				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'photoheaven' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'photoheaven' ) . '</span> <span class="nav-title">%title</span>',
+					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous', 'photoheaven' ),
+					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next', 'photoheaven' ),
 				)
 			);
 
@@ -36,5 +36,5 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
+
 get_footer();

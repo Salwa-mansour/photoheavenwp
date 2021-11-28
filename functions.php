@@ -46,7 +46,7 @@ if ( ! function_exists( 'photoheaven_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
-
+		add_theme_support( 'post-formats', array(  'gallery' ) );
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
@@ -144,6 +144,7 @@ function photoheaven_scripts() {
 	wp_style_add_data( 'photoheaven-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'photoheaven-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'photoheaven-carousel', get_template_directory_uri() . '/js/carousel1.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -177,4 +178,85 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+
+
+
+// FLEXSLIDER FUNCTION
+// --------------------------------------------------------------------------------------------- */
+
+
+if ( ! function_exists( 'photoheaven_flexslider' ) ) {
+
+ function photoheaven_flexslider( $size = 'thumbnail' ) {
+
+	 $attachment_parent = is_page() ? $post->ID : get_the_ID();
+
+	 $image_args = array(
+		 'numberposts'    => -1, // show all
+		 'orderby'        => 'menu_order',
+		 'order'          => 'ASC',
+		 'post_parent'    => $attachment_parent,
+		 'post_type'      => 'attachment',
+		 'post_status'    => null,
+		 'post_mime_type' => 'image',
+	 );
+
+	 $images = get_posts( $image_args );
+
+	 if ( $images ) : $i=0; ?>
+	  <div class="carousel">
+        <button class="carousel__button carousel__button--left hide">&lsaquo;</button>
+		 <div class="carousel__track-container">
+		 
+			 <ul class="carousel__track">
+	 
+				 <?php foreach( $images as $image ) :
+
+					 $attimg =wp_get_attachment_image_url( $image->ID, $size ) ?>
+					<?php if($i==0): ?>
+						<li class="carousel__slide current-slide">
+						<img src="<?php echo $attimg; ?>" class="carousel__image" alt=""> 
+						 </li>
+					<?php else://if($i==0): ?>
+						 <li class="carousel__slide">
+						<img src="<?php echo $attimg; ?>" class="carousel__image" alt=""> 
+						 </li>
+					<?php endif;//if($i==0): ?>
+					
+					 <?php $i++; ?>
+				 <?php endforeach; ?>
+		 
+			 </ul>
+			 <button class="carousel__button carousel__button--right">&rsaquo;</button>
+       		 <div class="carousel__nav">
+					<?php $i=0; ?>
+					<?php foreach( $images as $image ) :
+
+					// $attimg =wp_get_attachment_image_url( $image->ID, $size ) ?>
+					<?php if($i==0): ?>
+						<button class="carousel__indicator current-slide"></button>
+					<?php else://if($i==0): ?>
+						<button class="carousel__indicator"></button>
+					<?php endif;//if($i==0): ?>
+
+					<?php $i++; ?>
+					<?php endforeach; ?>
+            <!-- <button class="carousel__indicator current-slide"></button>
+            <button class="carousel__indicator"></button>
+            <button class="carousel__indicator"></button>
+            <button class="carousel__indicator"></button>
+            <button class="carousel__indicator"></button> -->
+       		 </div><!--carousel__nav-->
+  		  </div><!--carousel__track-container-->
+		 </div><!--carousel-->
+		 
+		 <?php
+		 
+	 endif;
+ }
+
+}
+
+
 
