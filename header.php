@@ -22,7 +22,14 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<?php wp_body_open(); ?>
+	<?php wp_body_open();
+	// $header_imgs = get_uploaded_header_images();
+	// foreach($header_imgs as $header_img):
+	// 	print_r($header_img['url']);
+	// endforeach;
+	
+	
+	?>
 	<div id="page" class="site">
 		<a class="skip-link screen-reader-text"
 			href="#primary"><?php esc_html_e( 'Skip to content', 'photoheaven' ); ?></a>
