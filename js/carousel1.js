@@ -1,7 +1,7 @@
 // gitteing the ul
 const track =document.querySelector('.carousel__track');
 const slides = Array.from(track.children)
-console.log(slides)
+// console.log(slides)
 const nextButton = document.querySelector('.carousel__button--right');
 const  prevButton= document.querySelector('.carousel__button--left');
 const dotsNav = document.querySelector('.carousel__nav');
