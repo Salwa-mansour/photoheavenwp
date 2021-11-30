@@ -35,7 +35,28 @@
 			href="#primary"><?php esc_html_e( 'Skip to content', 'photoheaven' ); ?></a>
 
 		<header id="masthead" class="site-header">
-			<img src="<?php esc_url(header_image()) ; ?>" alt="" class="hero-img">
+			
+<!-- // $header_imgs = get_uploaded_header_images();
+	// foreach($header_imgs as $header_img):
+	// 	print_r($header_img['url']);
+	// endforeach; -->
+
+			<!-- <img src="<?php //esc_url(header_image()) ; ?>" alt="" class="hero-img"> -->
+			<div class="hero-img-container">
+				<ul class="items-list">
+					
+				<?php	$header_imgs = get_uploaded_header_images(); ?>
+					 <?php foreach($header_imgs as $header_img): ?>
+						<li class="list-item" ><img src="<?php echo $header_img['url'] ?>" alt="1"></li>
+					 
+				<?php	 endforeach; ?>
+					
+						
+						
+						<!-- <li class="list-item" ><img src="../imges/4.jpg" alt=""></li>
+				<li class="list-item" ><img src="../imges/5.jpg" alt=""></li> -->
+				</ul>
+			</div>
 
 			<div class="site-branding">
 				<div class="main-nav">

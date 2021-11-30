@@ -1009,14 +1009,77 @@ body {
 	background-color: rgb(177, 177, 238);
 
 }
-
-.site-header .hero-img {
+/* hero slider start----------------------- */
+/* .site-header .hero-img {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+} */
+.site-header .hero-img-container{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	/* background-color: black; */
+}
+.site-header .hero-img-container .items-list{
+	padding: 0;
+	margin: 0;
+	position:absolute;
+	width: 100%;
+	height: 100%;
+	/* background-color: rgba(180, 51, 51, 0.767); */
+	list-style: none;
+}
+.site-header .hero-img-container .items-list .list-item{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	/* background-color: pink; */
+}
+.site-header .hero-img-container .items-list .list-item img{
+	width: 100%;
+    height: 100%;
+	object-fit:cover;
+    object-position: center;
+}
+.list-item.fadeing-item{
+	/* opacity: 5%; */
+	animation: fade .3s  linear ;
+   /* order: 1; */
+}
+@-webkit-keyframes fade {
+
+
+   0% {
+	   opacity: 50%;
+   }
+
+   50% {
+	   opacity: 80%;
+   }
+
+   100% {
+	   opacity: 100%;
+   }
 }
 
+@keyframes fade {
+
+
+   0% {
+	   opacity: 50%;
+   }
+
+   50% {
+	   opacity: 80%;
+   }
+
+   100% {
+	   opacity:100%;
+   }
+}
+/* hero slider end////// */
 .site-header .main-nav {
 
 	width: 100%;
@@ -1220,7 +1283,7 @@ body {
 
 	/* div.nav-menu */
 		{
-		border: 3px solid red;
+		/* border: 3px solid red; */
 		background-color: unset;
 		position: initial;
 		display: initial;
