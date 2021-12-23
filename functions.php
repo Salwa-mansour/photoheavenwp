@@ -207,7 +207,7 @@ if ( ! function_exists( 'photoheaven_flexslider' ) ) {
 
 	 if ( $images ) : $i=0; ?>
 	  <div class="carousel">
-        <button class="carousel__button carousel__button--left hide">&lsaquo;</button>
+        <span class="carousel__button carousel__button--left hide">&lsaquo;</span>
 		 <div class="carousel__track-container">
 		 
 			 <ul class="carousel__track">
@@ -229,7 +229,7 @@ if ( ! function_exists( 'photoheaven_flexslider' ) ) {
 				 <?php endforeach; ?>
 		 
 			 </ul>
-			 <button class="carousel__button carousel__button--right">&rsaquo;</button>
+			 <span class="carousel__button carousel__button--right">&rsaquo;</span>
        		 <div class="carousel__nav">
 					<?php $i=0; ?>
 					<?php foreach( $images as $image ) :

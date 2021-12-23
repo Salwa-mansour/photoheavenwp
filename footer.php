@@ -16,7 +16,7 @@
 			<p>
 				<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'photoheaven' ), 'photoheaven', '<a href="https://github.com/Salwa-mansour">salwa</a>' );
+				printf( esc_html__( 'Theme: %1$s by %2$s.', 'photoheaven' ), 'photoheaven', '<a href="https://github.com/Salwa-mansour" target="_blank" >salwa</a>' );
 				?>
 			</p>
 				

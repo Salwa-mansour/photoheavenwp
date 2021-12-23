@@ -1,6 +1,6 @@
 /*!
 Theme Name: photoheaven
-Theme URI: http://underscores.me/
+Theme URI: https://github.com/Salwa-mansour
 Author: salwa
 Author URI: https://github.com/Salwa-mansour
 Description: photography theme with photo grid and photo gallery and cool navigation for mobile with nice charming header style.
@@ -94,7 +94,7 @@ main {
  */
 h1 {
 	font-size: 2em;
-	margin: 0.67em 0;
+	/* margin: 0.67em 0; */
 }
 
 /* Grouping content
@@ -532,7 +532,7 @@ table {
 
 /* Links
 --------------------------------------------- */
-a {
+/* a {
 	color: #4169e1;
 }
 
@@ -553,7 +553,7 @@ a:focus {
 a:hover,
 a:active {
 	outline: 0;
-}
+} */
 
 /* Forms
 --------------------------------------------- */
@@ -561,31 +561,38 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 1px solid;
-	border-color: #ccc #ccc #bbb;
+	/* border: 1px solid; */
+	/* border-color: #ccc #ccc #bbb; */
 	border-radius: 3px;
-	background: #e6e6e6;
-	color: rgba(0, 0, 0, 0.8);
+	/* background: #e6e6e6; */
+	/* color: rgba(0, 0, 0, 0.8); */
 	line-height: 1;
 	padding: 0.6em 1em 0.4em;
+	border: none;
+	outline: none;
+
 }
 
-button:hover,
+/* button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
 	border-color: #ccc #bbb #aaa;
-}
+} */
 
 button:active,
 button:focus,
+button:hover,
 input[type="button"]:active,
 input[type="button"]:focus,
+input[type="button"]:hover,
 input[type="reset"]:active,
 input[type="reset"]:focus,
+input[type="reset"]:hover,
 input[type="submit"]:active,
-input[type="submit"]:focus {
-	border-color: #aaa #bbb #bbb;
+input[type="submit"]:focus, 
+input[type="submit"]:hover {
+	background-color: rgb(255, 175, 188);
 }
 
 input[type="text"],
@@ -604,10 +611,10 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-	color: #666;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	padding: 3px;
+	/* color: #666; */
+	border: 3px solid pink;
+	border-radius: 6px;
+	padding: .5rem;
 }
 
 input[type="text"]:focus,
@@ -626,7 +633,8 @@ input[type="datetime"]:focus,
 input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus {
-	color: #111;
+	outline: none;
+	border-style: double;
 }
 
 select {
@@ -759,8 +767,7 @@ textarea {
 	display: block;
 }
 
-.post,
-.page {
+.post {
 	margin: 0 0 1.5em;
 }
 
@@ -771,7 +778,7 @@ textarea {
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+	/* margin: 1.5em 0 0; */
 }
 
 .page-links {
@@ -998,16 +1005,25 @@ body {
 	line-height: 1em;
 	letter-spacing: 0.1363em;
 	text-decoration: none;
-	text-transform: uppercase;
-
+	font-size: calc(12px + (18 - 12) * ((100vw - 300px) / (1600 - 300)));
+	line-height: 2;
+	font-family: 'lato' ,sans-serif;
 }
-
+.site-header.no-hero{
+	height: 100px;
+}
+.entry-title{
+	text-transform: uppercase;
+}
 .site-header {
 	position: relative;
 	width: 100%;
 	height: 100vh;
 	background-color: rgb(177, 177, 238);
 
+}
+.site-main{
+	min-height: 100vh;
 }
 /* hero slider start----------------------- */
 /* .site-header .hero-img {
@@ -1570,7 +1586,7 @@ body {
 	
 	/* border: 1px solid green; */
 	max-width: 800px;
-	margin: auto;
+	margin:1rem auto;
 	background-image:linear-gradient( to bottom , white 1%, #ffd3da ,white 99%);
 }
 .post-container .entry-content,
@@ -1581,3 +1597,59 @@ body {
 	padding: .5rem 1rem;
 }
 /* single post page gallery stylings end */
+/* basice reset stylings */
+span.edit-link,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.reply {
+	cursor: pointer;
+	display: block;
+	padding: .6rem;
+	background-color: pink;
+	margin: .5rem;
+	border-radius: 3px;
+	color: white;
+	text-shadow: 0px 0px 10px rgb(201, 101, 118);
+}
+.reply:hover ,
+span.edit-link:hover{
+	background-color: rgb(255, 175, 188);
+	/* color: white; */
+}
+.reply{
+	width: 5rem;
+}
+span.edit-link,
+span.post-edit-link{
+	padding: 0;
+}
+span.edit-link .post-edit-link,
+span.edit-link .comment-edit-link,
+.comment-reply-link{
+	color: white;
+	text-decoration: none;
+	font-weight: 900;
+	font-size: 1.2rem;
+	text-transform: capitalize;
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding: .6rem;
+}
+div.nav-links a{
+ text-decoration: none;
+
+}
+.nav-next a::after{
+	content: ">>";
+	letter-spacing: 0em;
+}
+.nav-previous a::before{
+	content: "<<";
+}
+.nav-previous a:hover,
+.nav-next a:hover{
+	color: #191970; 
+}

@@ -7,7 +7,7 @@
  * @package photoheaven
  */
 // echo('single');
-get_header();
+get_header('nohero');
 ?>
 
 	<main id="primary" class="site-main post-container">
