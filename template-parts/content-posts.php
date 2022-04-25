@@ -15,7 +15,7 @@ if(! has_post_thumbnail()){
 	<?php 
 	
 			
-	echo(get_post_format());
+	// echo(get_post_format());
 	?>
 	<header class="entry-header gallery-item">
 		

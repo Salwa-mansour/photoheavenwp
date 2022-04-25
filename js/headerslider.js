@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded',function(){
     const listImgs = document.querySelectorAll('.items-list .list-item');
-  
+//   console.log(listImgs)
     function changOrder(){
           const firestImg = document.querySelector('.list-item:first-child img');
           const firestLi =  document.querySelector('.list-item:first-child');
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded',function(){
         // adding the fadeing css class to it
         NewfirestLi.classList.add('fadeing-item');
     }
-    if(listImgs>1){
+    if(listImgs.length>1){
          setInterval(changOrder,2000);
     };
    

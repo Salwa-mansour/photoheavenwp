@@ -1229,7 +1229,7 @@ body {
 		justify-content: center;
 
 		background: pink;
-		z-index: 20;
+		z-index: 25;
 
 		opacity: 0;
 		pointer-events: none;
@@ -1606,12 +1606,17 @@ input[type="submit"],
 .reply {
 	cursor: pointer;
 	display: block;
-	padding: .6rem;
+
 	background-color: pink;
 	margin: .5rem;
 	border-radius: 3px;
 	color: white;
 	text-shadow: 0px 0px 10px rgb(201, 101, 118);
+}
+input[type="button"],
+input[type="reset"],
+input[type="submit"]{
+	padding: .6rem;
 }
 .reply:hover ,
 span.edit-link:hover{
@@ -1621,10 +1626,7 @@ span.edit-link:hover{
 .reply{
 	width: 5rem;
 }
-span.edit-link,
-span.post-edit-link{
-	padding: 0;
-}
+
 span.edit-link .post-edit-link,
 span.edit-link .comment-edit-link,
 .comment-reply-link{
